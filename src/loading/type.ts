@@ -29,7 +29,7 @@ export interface TdLoadingProps {
     value?: ['t-class', 't-class-text', 't-class-indicator'];
   };
   /**
-   * 加载指示符，值为 true 显示默认指示符，值为 false 则不显示，也可以自定义指示符
+   * 是否显示加载指示符
    * @default true
    */
   indicator?: {
@@ -91,6 +91,14 @@ export interface TdLoadingProps {
     value?: string;
   };
   /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
    * 加载提示文案
    */
   text?: {
@@ -103,6 +111,6 @@ export interface TdLoadingProps {
    */
   theme?: {
     type: StringConstructor;
-    value?: 'circular' | 'spinner' | 'dots';
+    value?: 'circular' | 'spinner' | 'bar' | 'error' | 'dots';
   };
 }

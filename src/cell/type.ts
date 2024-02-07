@@ -18,8 +18,8 @@ export interface TdCellProps {
    * @default false
    */
   arrow?: {
-    type: null;
-    value?: boolean | object;
+    type: BooleanConstructor;
+    value?: boolean;
   };
   /**
    * 是否显示下边框
@@ -28,14 +28,6 @@ export interface TdCellProps {
   bordered?: {
     type: BooleanConstructor;
     value?: boolean;
-  };
-  /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
   };
   /**
    * 下方内容描述
@@ -86,8 +78,8 @@ export interface TdCellProps {
    * 左侧图标，出现在单元格标题的左侧
    */
   leftIcon?: {
-    type: null;
-    value?: string | object;
+    type: StringConstructor;
+    value?: string;
   };
   /**
    * 和标题同行的说明文字
@@ -108,8 +100,16 @@ export interface TdCellProps {
    * 最右侧图标
    */
   rightIcon?: {
-    type: null;
-    value?: string | object;
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
   };
   /**
    * 标题

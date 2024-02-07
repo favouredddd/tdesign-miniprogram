@@ -1,17 +1,35 @@
+:: BASE_DOC ::
 
+## API
+### Search Props
 
-### CSS Variables
-The component provides the following CSS variables, which can be used to customize styles.
-Name | Default Value | Description 
+name | type | default | description | required
+-- | -- | -- | -- | --
+action | String / Slot | '' | \- | N
+autocomplete-options | Array | - | autocomplete words list。Typescript：`Array<AutocompleteOption>` `type AutocompleteOption = string \| { label: string; group?: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-miniprogram/tree/develop/src/search/type.ts) | N
+center | Boolean | false | \- | N
+clearable | Boolean | true | \- | N
+disabled | Boolean | - | \- | N
+external-classes | Array | - | `['t-class', 't-class-input', 't-class-input-container', 't-class-action','t-class-left','t-class-clear']` | N
+focus | Boolean | false | \- | N
+label | String / Slot | '' | \- | N
+left-icon | String / Slot | 'search' | \- | N
+placeholder | String | '' | \- | N
+prefix-icon | String / Slot | 'search' | \- | N
+readonly | Boolean | false | \- | N
+shape | String | 'square' | options：square/round | N
+style | String | - | \- | N
+suffix-icon | String / Slot | - | \- | N
+value | String | - | \- | N
+default-value | String | undefined | uncontrolled property | N
+
+### Search Events
+
+name | params | description
 -- | -- | --
---td-search-action-color | @brand-color | - 
---td-search-bg-color | @bg-color-secondarycontainer | - 
---td-search-clear-icon-color | @font-gray-3 | - 
---td-search-font-size | @font-size-m | - 
---td-search-height | 80rpx | - 
---td-search-icon-color | @font-gray-3 | - 
---td-search-label-color | @font-gray-1 | - 
---td-search-padding | 16rpx 24rpx | - 
---td-search-placeholder-color | @font-gray-3 | - 
---td-search-square-radius | @radius-default | - 
---td-search-text-color | @font-gray-1 | - 
+action-click | - | \-
+blur | `(detail: { value: string })` | \-
+change | `({ value: string; trigger: 'input-change' \| 'option-click' })` | \-
+clear | - | \-
+focus | `(detail: { value: string })` | \-
+search | `(context?: { value: string; trigger: 'submit' \| 'option-click' \| 'clear'; e?: InputEvent \| MouseEvent })` | \-

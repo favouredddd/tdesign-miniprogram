@@ -25,33 +25,25 @@ const props: TdRateProps = {
   disabled: {
     type: Boolean,
   },
-  /** 组件类名，分别用于设置 组件外层类名、评分图标类名、辅助文字类名。 */
-  externalClasses: {
-    type: Array,
-  },
   /** 评分图标的间距 */
   gap: {
-    type: null,
-    value: 8,
-  },
-  /** 自定义图标前缀 */
-  iconPrefix: {
-    type: String,
-    value: undefined,
-  },
-  /** 自定义评分图标，[选中图标，未选中图标] */
-  icon: {
-    type: null,
+    type: Number,
+    value: 4,
   },
   /** 是否显示对应的辅助文字 */
   showText: {
     type: Boolean,
     value: false,
   },
-  /** 评分图标的大小 */
+  /** 评分图标的大小，示例：`20px` */
   size: {
     type: String,
     value: '24px',
+  },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
   /** 评分等级对应的辅助文字。组件内置默认值为：['极差', '失望', '一般', '满意', '惊喜']。自定义值示例：['1分', '2分', '3分', '4分', '5分'] */
   texts: {
@@ -68,13 +60,10 @@ const props: TdRateProps = {
     type: Number,
     value: 0,
   },
-  /**
-   * 选择评分弹框的位置
-   * @default top
-   */
-  placement: {
+  /** 形状类型，有描边类型和填充类型两种 */
+  variant: {
     type: String,
-    value: 'top',
+    value: 'outline',
   },
 };
 

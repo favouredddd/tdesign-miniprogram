@@ -14,15 +14,15 @@ export interface TdNavbarProps {
     value?: boolean;
   };
   /**
-   * 自定义组件样式
+   * 背景
    * @default ''
    */
-  style?: {
+  background?: {
     type: StringConstructor;
     value?: string;
   };
   /**
-   * 后退按钮后退层数，含义参考 [wx.navigateBack](https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.navigateBack.html)，特殊的，传入 0 不会发生执行 wx.navigateBack
+   * 后退按钮后退层数，含义参考 [wx.navigateBack](https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.navigateBack.html)，特殊的，传入 0 不会发生执行 wx.navigateBack，只会触发一个 goback 事件供自行处理。
    * @default 1
    */
   delta?: {
@@ -45,12 +45,28 @@ export interface TdNavbarProps {
     value?: boolean;
   };
   /**
-   * 是否展示左侧箭头
-   * @default false
+   * 首页图标地址。值为 '' 或者 undefiend 则表示不显示返回图标，值为 'circle' 表示显示默认图标，值为 'slot' 表示使用插槽渲染，值为其他则表示图标地址
+   * @default ''
    */
-  leftArrow?: {
-    type: BooleanConstructor;
-    value?: boolean;
+  homeIcon?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
+   * 左侧图标地址，值为 '' 或者 undefiend 则表示不显示返回图标，值为 'arrow-left' 表示显示返回图标，值为 'slot' 表示使用插槽渲染，值为其他则表示图标地址
+   * @default ''
+   */
+  leftIcon?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
   };
   /**
    * 页面标题

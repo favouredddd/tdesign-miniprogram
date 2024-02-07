@@ -5,6 +5,7 @@
  * */
 
 import { ButtonProps } from '../button/index';
+import { TNode } from '../common/common';
 
 export interface TdDialogProps {
   /**
@@ -30,14 +31,6 @@ export interface TdDialogProps {
     value?: string | ButtonProps | null;
   };
   /**
-   * 是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；使用 Object 时透传至图标组件
-   * @default false
-   */
-  closeBtn?: {
-    type: null;
-    value?: boolean | object;
-  };
-  /**
    * 点击蒙层时是否触发关闭事件
    */
   closeOnOverlayClick?: {
@@ -55,14 +48,6 @@ export interface TdDialogProps {
    * 内容
    */
   content?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
     type: StringConstructor;
     value?: string;
   };
@@ -98,6 +83,14 @@ export interface TdDialogProps {
     value?: boolean;
   };
   /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
    * 标题
    */
   title?: {
@@ -106,6 +99,7 @@ export interface TdDialogProps {
   };
   /**
    * 控制对话框是否显示
+   * @default false
    */
   visible?: {
     type: BooleanConstructor;

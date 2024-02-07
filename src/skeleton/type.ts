@@ -14,14 +14,6 @@ export interface TdSkeletonProps {
     value?: 'gradient' | 'flashed' | 'none';
   };
   /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
    * 【开发中】延迟显示加载效果的时间，用于防止请求速度过快引起的加载闪烁，单位：毫秒
    * @default 0
    */
@@ -53,12 +45,20 @@ export interface TdSkeletonProps {
     value?: SkeletonRowCol;
   };
   /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
    * 骨架图风格，有基础、头像组合等两大类
    * @default text
    */
   theme?: {
     type: StringConstructor;
-    value?: 'avatar' | 'image' | 'text' | 'paragraph';
+    value?: 'text' | 'avatar-text';
   };
 }
 
@@ -66,10 +66,8 @@ export type SkeletonRowCol = Array<Number | SkeletonRowColObj | Array<SkeletonRo
 
 export interface SkeletonRowColObj {
   width?: string;
-  size?: string;
   height?: string;
   marginRight?: string;
   marginLeft?: string;
   margin?: string;
-  type?: 'rect' | 'circle' | 'text';
 }

@@ -14,10 +14,10 @@ const props: TdCellGroupProps = {
   externalClasses: {
     type: Array,
   },
-  /** 单元格风格 */
-  theme: {
+  /** 自定义组件样式 */
+  style: {
     type: String,
-    value: 'default',
+    value: '',
   },
   /** 单元格组标题 */
   title: {
