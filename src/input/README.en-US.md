@@ -1,16 +1,13 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Input Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
 align | String | left | options：left/center/right | N
-layout | String | horizontal | options：vertical/horizontal | N
-borderless | Boolean | true | \- | N
+borderless | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
-clear-trigger | String | always | options：always / focus | N
 disabled | Boolean | - | \- | N
 error-message | String | - | `deprecated` | N
 external-classes | Array | - | `['t-class', 't-class-input', 't-class-placeholder', 't-class-error-msg']` | N
@@ -23,6 +20,7 @@ prefix-icon | String / Slot | - | \- | N
 readonly | Boolean | false | \- | N
 size | String | small | options：small/medium。Typescript：`'medium' \| 'small'` | N
 status | String | default | options：default/success/warning/error | N
+style | String | - | \- | N
 suffix | String / Slot | - | \- | N
 suffix-icon | String / Slot | - | \- | N
 tips | String / Slot | - | \- | N
@@ -49,6 +47,15 @@ safe-password-time-stamp | Number | - | \- | N
 safe-password-nonce | String | - | \- | N
 safe-password-salt | String | - | \- | N
 safe-password-custom-hash | String | - | \- | N
+bindinput | Eventhandle | - | required | Y
+bindfocus | Eventhandle | - | required | Y
+bindblur | Eventhandle | - | required | Y
+bindconfirm | Eventhandle | - | required | Y
+bindkeyboardheightchange | Eventhandle | - | required | Y
+type | 除 safe-password、nickname 外都支持 | - | required | Y
+placeholder-style | 需传入对象，格式为 `{ fontSize: number, fontWeight: string, color: string }` | - | required | Y
+placeholder-class | 不支持 | - | required | Y
+
 ### Input Events
 
 name | params | description
@@ -58,32 +65,4 @@ change | `(value: InputValue, cursor: number, keyCode: number)` | \-
 clear | \- | \-
 enter | `(value: InputValue)` | \-
 focus | `(value: InputValue)` | \-
-keyboardheightchange | `(height: number, duration: number)` | \-
-
-
-### CSS Variables
-The component provides the following CSS variables, which can be used to customize styles.
-Name | Default Value | Description 
--- | -- | --
---td-input-bg-color | @bg-color-container | - 
---td-input-border-color | @component-stroke | - 
---td-input-border-left-space | 32rpx | - 
---td-input-border-radius | @radius-default | - 
---td-input-border-right-space | 0 | - 
---td-input-default-text-color | @font-gray-1 | - 
---td-input-default-tips-color | @font-gray-3 | - 
---td-input-disabled-text-color | @text-color-disabled | - 
---td-input-error-text-color | @error-color | - 
---td-input-error-tips-color | @error-color | - 
---td-input-label-max-width | 5em | - 
---td-input-label-min-width | 2em | - 
---td-input-label-text-color | @font-gray-1 | - 
---td-input-placeholder-text-color | @text-color-placeholder | - 
---td-input-prefix-icon-color | @font-gray-1 | - 
---td-input-success-text-color | @success-color | - 
---td-input-success-tips-color | @success-color | - 
---td-input-suffix-icon-color | @font-gray-3 | - 
---td-input-suffix-text-color | @font-gray-1 | - 
---td-input-vertical-padding | 32rpx | - 
---td-input-warning-text-color | @warning-color | - 
---td-input-warning-tips-color | @warning-color | - 
+validate | `(detail: { error?: 'exceed-maximum' \| 'below-minimum' })` | trigger on text length being over max length or max character

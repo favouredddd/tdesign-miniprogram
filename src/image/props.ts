@@ -15,10 +15,6 @@ const props: TdImageProps = {
   externalClasses: {
     type: Array,
   },
-  /** 高度，默认单位为`px` */
-  height: {
-    type: null,
-  },
   /** 是否开启图片懒加载 */
   lazy: {
     type: Boolean,
@@ -28,11 +24,6 @@ const props: TdImageProps = {
   loading: {
     type: String,
     value: 'default',
-  },
-  /** 图片裁剪、缩放的模式；[小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/image.html) */
-  mode: {
-    type: String,
-    value: 'scaleToFill',
   },
   /** 图片圆角类型 */
   shape: {
@@ -49,14 +40,20 @@ const props: TdImageProps = {
     type: String,
     value: '',
   },
-  /** 默认不解析 webP 格式，只支持网络资源 */
-  webp: {
-    type: Boolean,
-    value: false,
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
-  /** 宽度，默认单位为`px` */
-  width: {
-    type: null,
+  /**  */
+  mode: {
+    type: 只支持 scaleToFill/aspectFit/aspectFill/widthFix/heightFix，其余暂未支持，表现为居中,
+    required: true,
+  },
+  /**  */
+  webp: {
+    type: 无需指定，默认支持,
+    required: true,
   },
 };
 

@@ -7,17 +7,9 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 align | String | center | options：left/right/center | N
 content | String / Slot | - | \- | N
+custom-style | String | - | `v0.25.0` | N
 dashed | Boolean | false | \- | N
 external-classes | Array | - | `['t-class', 't-class-line', 't-class-content']` | N
 layout | String | horizontal | options：horizontal/vertical | N
-
-
-### CSS Variables
-The component provides the following CSS variables, which can be used to customize styles.
-Name | Default Value | Description 
--- | -- | --
---td-divider-color | @bg-color-component | - 
---td-divider-content-color | @font-gray-3 | - 
---td-divider-content-font-size | 24rpx | - 
---td-divider-content-line-height | 40rpx | - 
---td-divider-content-line-style | solid | - 
+line-color | String | - | \- | N
+style | String | - | \- | N

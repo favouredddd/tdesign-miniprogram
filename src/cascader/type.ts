@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TreeOptionData, KeysType } from '../common/common';
+import { TreeOptionData } from '../common/common';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -16,13 +16,6 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     value?: boolean;
   };
   /**
-   * 用来定义 value / label 在 `options` 中对应的字段别名
-   */
-  keys?: {
-    type: ObjectConstructor;
-    value?: KeysType;
-  };
-  /**
    * 可选项数据源
    * @default []
    */
@@ -31,20 +24,12 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     value?: Array<CascaderOption>;
   };
   /**
-   * 每级展示的次标题
-   * @default []
+   * 自定义组件样式
+   * @default ''
    */
-  subTitles?: {
-    type: ArrayConstructor;
-    value?: Array<string>;
-  };
-  /**
-   * 展示风格
-   * @default step
-   */
-  theme?: {
+  style?: {
     type: StringConstructor;
-    value?: 'step' | 'tab';
+    value?: string;
   };
   /**
    * 标题
@@ -59,7 +44,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   value?: {
     type: null;
-    value?: string | number;
+    value?: null;
   };
   /**
    * 选项值，非受控属性
@@ -67,7 +52,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   defaultValue?: {
     type: null;
-    value?: string | number;
+    value?: null;
   };
   /**
    * 是否展示

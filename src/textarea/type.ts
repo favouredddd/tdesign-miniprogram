@@ -26,8 +26,8 @@ export interface TdTextareaProps {
    * @default false
    */
   autosize?: {
-    type: null;
-    value?: boolean | object;
+    type: BooleanConstructor;
+    value?: boolean;
   };
   /**
    * 点击键盘右下角按钮时是否保持键盘不收起点
@@ -39,27 +39,11 @@ export interface TdTextareaProps {
   };
   /**
    * 设置键盘右下角按钮的文字，仅在 type='text'时生效
-   * @default return
+   * @default done
    */
   confirmType?: {
     type: StringConstructor;
-    value?: 'return' | 'send' | 'search' | 'next' | 'go' | 'done';
-  };
-  /**
-   * 指定光标与键盘的距离。取textarea距离底部的距离和cursor-spacing指定的距离的最小值作为光标与键盘的距离
-   * @default 0
-   */
-  cursorSpacing?: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
+    value?: 'send' | 'search' | 'next' | 'go' | 'done';
   };
   /**
    * 是否禁用文本框
@@ -74,15 +58,7 @@ export interface TdTextareaProps {
    */
   externalClasses?: {
     type: ArrayConstructor;
-    value?: ['t-class', 't-class-textarea', 't-class-label'];
-  };
-  /**
-   * 如果 textarea 是在一个 `position:fixed` 的区域，需要显示指定属性 fixed 为 true
-   * @default false
-   */
-  fixed?: {
-    type: BooleanConstructor;
-    value?: boolean;
+    value?: ['t-class', 't-class-textarea', 't-class-placeholder', 't-class-name'];
   };
   /**
    * 自动聚焦
@@ -107,8 +83,7 @@ export interface TdTextareaProps {
     value?: number;
   };
   /**
-   * 用户最多可以输入的字符个数。默认为 -1，不限制输入长度
-   * @default -1
+   * 用户最多可以输入的字符个数
    */
   maxlength?: {
     type: NumberConstructor;
@@ -122,15 +97,16 @@ export interface TdTextareaProps {
     value?: string;
   };
   /**
-   * 指定 placeholder 的样式，目前仅支持 color ,font-size和font-weight
+   * 自定义组件样式
+   * @default ''
    */
-  placeholderStyle: {
+  style?: {
     type: StringConstructor;
-    value: string;
+    value?: string;
   };
   /**
    * 文本框值
-   * @default null
+   * @default ''
    */
   value?: {
     type: StringConstructor;
@@ -143,67 +119,5 @@ export interface TdTextareaProps {
   defaultValue?: {
     type: StringConstructor;
     value?: string;
-  };
-  /**
-   * 是否显示外边框
-   * @default true
-   */
-  bordered?: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * 显示文本计数器，如 0/140。当 `maxlength < 0 && maxcharacter < 0` 成立时， indicator无效
-   */
-  indicator?: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * 指定focus时的光标位置
-   * @default -1
-   */
-  cursor: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /** 是否显示键盘上方带有”完成“按钮那一栏
-   * @default true
-   */
-  showConfirmBar: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * 光标起始位置，自动聚集时有效，需与selection-end搭配使用
-   * @default -1
-   */
-  selectionStart?: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /**
-   * 光标结束位置，自动聚集时有效，需与selection-start搭配使用
-   * @default -1
-   */
-  selectionEnd?: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /**
-   * 是否去掉 iOS 下的默认内边距
-   * @default false
-   */
-  disableDefaultPadding?: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * focus时，点击页面的时候不收起键盘
-   * @default false
-   */
-  holdKeyboard?: {
-    type: BooleanConstructor;
-    value?: boolean;
   };
 }

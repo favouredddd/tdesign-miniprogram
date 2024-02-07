@@ -6,20 +6,27 @@
 
 export interface TdSearchProps {
   /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
-   * 自定义右侧操作按钮文字
+   * 用于自定义搜索框右侧内容，如：“取消”
    * @default ''
    */
   action?: {
     type: StringConstructor;
     value?: string;
+  };
+  /**
+   * 【开发中】联想词列表，如果不存在或长度为 0 则不显示联想框。可以使用函数 `label` 自定义联想词为任意内容；也可使用插槽 `option` 定义联想词内容，插槽参数为 `{ option: AutocompleteOption; index: number }`。如果 `group` 值为 `true` 则表示当前项为分组标题
+   */
+  autocompleteOptions?: {
+    type: ArrayConstructor;
+    value?: Array<AutocompleteOption>;
+  };
+  /**
+   * 是否默认聚焦
+   * @default false
+   */
+  autofocus?: {
+    type: BooleanConstructor;
+    value?: boolean;
   };
   /**
    * 是否居中
@@ -30,8 +37,15 @@ export interface TdSearchProps {
     value?: boolean;
   };
   /**
-   * 是否禁用
-   * @default false
+   * 是否可清空
+   * @default true
+   */
+  clearable?: {
+    type: BooleanConstructor;
+    value?: boolean;
+  };
+  /**
+   * 禁用状态
    */
   disabled?: {
     type: BooleanConstructor;
@@ -45,15 +59,14 @@ export interface TdSearchProps {
     value?: ['t-class', 't-class-input', 't-class-input-container', 't-class-cancel', 't-class-left', 't-class-right'];
   };
   /**
-   * 指定光标与键盘的距离，取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
-   * @default 0
+   * 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据。其中参数 `keyword` 指当前的搜索词，参数 `option` 指每一项联想词，函数返回 true 则显示当前联想词，函数返回 `false` 则隐藏当前联想词
    */
-  cursorSpacing?: {
-    type: NumberConstructor;
-    value?: number;
+  filter?: {
+    type: undefined;
+    value?: (keyword: string, option: any) => boolean | Promise<boolean>;
   };
   /**
-   * 是否聚焦
+   * 是否聚焦，同小程序官方属性
    * @default false
    */
   focus?: {
@@ -61,112 +74,10 @@ export interface TdSearchProps {
     value?: boolean;
   };
   /**
-   * 左侧文本
+   * 搜索框内部左侧内容，位于 `prefixIcon` 左侧
    * @default ''
    */
   label?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
-   * 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度。`maxcharacter` 和 `maxlength` 二选一使用
-   */
-  maxcharacter?: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /**
-   * 用户最多可以输入的文本长度，一个中文等于一个计数长度，默认为 -1，不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用
-   * @default -1
-   */
-  maxlength?: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /**
-   * 设置键盘右下角按钮的文字，仅在type='text'时生效。<br />具体释义：<br />`send` 右下角按钮为“发送”；<br />`search` 右下角按钮为“搜索”；<br />`next` 右下角按钮为“下一个”；<br />`go` 右下角按钮为“前往”；<br />`done` 右下角按钮为“完成”。<br />[小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/input.html)
-   * @default search
-   */
-  confirmType?: {
-    type: StringConstructor;
-    value?: 'send' | 'search' | 'next' | 'go' | 'done';
-  };
-  /**
-   * 强制 input 处于同层状态，默认 focus 时 input 会切到非同层状态 (仅在 iOS 下生效)
-   * @default false
-   */
-  alwaysEmbed?: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * 点击键盘右下角按钮时是否保持键盘不收起
-   * @default false
-   */
-  confirmHold?: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * 指定focus时的光标位置
-   */
-  cursor: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /**
-   * 光标起始位置，自动聚集时有效，需与selection-end搭配使用
-   * @default -1
-   */
-  selectionStart?: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /**
-   * 光标结束位置，自动聚集时有效，需与selection-start搭配使用
-   * @default -1
-   */
-  selectionEnd?: {
-    type: NumberConstructor;
-    value?: number;
-  };
-  /**
-   * 键盘弹起时，是否自动上推页面
-   * @default true
-   */
-  adjustPosition?: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * focus时，点击页面的时候不收起键盘
-   * @default false
-   */
-  holdKeyboard?: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * 指定 placeholder 的样式
-   * @default ''
-   */
-  placeholderStyle: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
-   * 指定 placeholder 的样式类
-   * @default ''
-   */
-  placeholderClass?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
-   * 左侧图标
-   * @default 'search'
-   */
-  leftIcon?: {
     type: StringConstructor;
     value?: string;
   };
@@ -179,12 +90,20 @@ export interface TdSearchProps {
     value?: string;
   };
   /**
-   * 右侧图标
-   * @default 'close'
+   * 前置图标，默认为搜索图标。值为 `null` 时则不显示
+   * @default 'search'
    */
-  rightIcon?: {
+  prefixIcon?: {
     type: StringConstructor;
     value?: string;
+  };
+  /**
+   * 只读状态
+   * @default false
+   */
+  readonly?: {
+    type: BooleanConstructor;
+    value?: boolean;
   };
   /**
    * 搜索框形状
@@ -195,7 +114,30 @@ export interface TdSearchProps {
     value?: 'square' | 'round';
   };
   /**
-   * 值
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
+   * 搜索框内部右侧内容，位于 `suffixIcon` 右侧
+   * @default ''
+   */
+  suffix?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
+   * 后置图标
+   */
+  suffixIcon?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
+   * 值，搜索关键词
    * @default ''
    */
   value?: {
@@ -203,19 +145,13 @@ export interface TdSearchProps {
     value?: string;
   };
   /**
-   * 是否启用清除控件
-   * @default true
+   * 值，搜索关键词，非受控属性
+   * @default ''
    */
-  clearable: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * 可以控制拉起的键盘类型
-   * @default 'text'
-   */
-  type: {
+  defaultValue?: {
     type: StringConstructor;
     value?: string;
   };
 }
+
+export type AutocompleteOption = string | { label: string; group?: boolean };

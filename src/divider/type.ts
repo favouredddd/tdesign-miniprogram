@@ -24,7 +24,7 @@ export interface TdDividerProps {
    * 自定义组件样式
    * @default ''
    */
-  style?: {
+  customStyle?: {
     type: StringConstructor;
     value?: string;
   };
@@ -50,5 +50,21 @@ export interface TdDividerProps {
   layout?: {
     type: StringConstructor;
     value?: 'horizontal' | 'vertical';
+  };
+  /**
+   * 分隔线颜色
+   * @default ''
+   */
+  lineColor?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
   };
 }

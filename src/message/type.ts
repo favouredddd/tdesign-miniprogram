@@ -22,7 +22,6 @@ export interface TdMessageProps {
   };
   /**
    * 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。也可以完全自定义按钮
-   * @default false
    */
   closeBtn?: {
     type: null;
@@ -32,14 +31,6 @@ export interface TdMessageProps {
    * 用于自定义消息弹出内容
    */
   content?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
     type: StringConstructor;
     value?: string;
   };
@@ -82,6 +73,14 @@ export interface TdMessageProps {
     value?: Array<string | number>;
   };
   /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
    * 消息组件风格
    * @default info
    */
@@ -106,19 +105,12 @@ export interface TdMessageProps {
     value?: boolean;
   };
   /**
-   * 组件层级，样式默认为 15000
+   * 元素层级，样式默认为 15000
    * @default 15000
    */
   zIndex?: {
     type: NumberConstructor;
     value?: number;
-  };
-  /**
-   * 链接名称。值为字符串表示链接名称，值为 `Object` 类型，表示透传至 `Link`。
-   */
-  link?: {
-    type: null;
-    value?: string | object;
   };
 }
 

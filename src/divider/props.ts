@@ -16,7 +16,7 @@ const props: TdDividerProps = {
     type: String,
   },
   /** 自定义组件样式 */
-  style: {
+  customStyle: {
     type: String,
     value: '',
   },
@@ -33,6 +33,16 @@ const props: TdDividerProps = {
   layout: {
     type: String,
     value: 'horizontal',
+  },
+  /** 分隔线颜色 */
+  lineColor: {
+    type: String,
+    value: '',
+  },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
 };
 

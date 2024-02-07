@@ -16,12 +16,17 @@ const props: TdResultProps = {
   },
   /** 图标名称 */
   icon: {
-    type: null,
-    value: true,
+    type: String,
+    value: '',
   },
   /** 图片地址 */
   image: {
     type: String,
+  },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
   /** 内置主题。可选项：default/success/warning/error */
   theme: {

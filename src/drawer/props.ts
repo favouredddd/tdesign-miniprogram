@@ -30,9 +30,10 @@ const props: TdDrawerProps = {
     type: Boolean,
     value: true,
   },
-  /** 抽屉的标题 */
-  title: {
+  /** 自定义组件样式 */
+  style: {
     type: String,
+    value: '',
   },
   /** 组件是否可见 */
   visible: {
@@ -42,7 +43,6 @@ const props: TdDrawerProps = {
   /** 抽屉层级，样式默认为 11500 */
   zIndex: {
     type: Number,
-    value: 11500,
   },
 };
 
