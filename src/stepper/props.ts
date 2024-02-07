@@ -39,10 +39,10 @@ const props: TdStepperProps = {
     type: Number,
     value: 1,
   },
-  /** 组件尺寸 */
-  size: {
+  /** 自定义组件样式 */
+  style: {
     type: String,
-    value: 'medium',
+    value: '',
   },
   /** 组件风格 */
   theme: {
@@ -51,14 +51,12 @@ const props: TdStepperProps = {
   },
   /** 值 */
   value: {
-    type: String,
-    optionalTypes: [Number],
+    type: null,
     value: null,
   },
   /** 值，非受控属性 */
   defaultValue: {
-    type: String,
-    optionalTypes: [Number],
+    type: null,
     value: 0,
   },
 };

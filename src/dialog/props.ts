@@ -19,11 +19,6 @@ const props: TdDialogProps = {
   cancelBtn: {
     type: null,
   },
-  /** 是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；使用 Object 时透传至图标组件 */
-  closeBtn: {
-    type: null,
-    value: false,
-  },
   /** 点击蒙层时是否触发关闭事件 */
   closeOnOverlayClick: {
     type: Boolean,
@@ -56,6 +51,11 @@ const props: TdDialogProps = {
     type: Boolean,
     value: true,
   },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
+  },
   /** 标题 */
   title: {
     type: String,
@@ -63,6 +63,7 @@ const props: TdDialogProps = {
   /** 控制对话框是否显示 */
   visible: {
     type: Boolean,
+    value: false,
   },
   /** 对话框层级，Web 侧样式默认为 2500，移动端样式默认 2500，小程序样式默认为 11500 */
   zIndex: {

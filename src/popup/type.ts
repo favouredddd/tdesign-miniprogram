@@ -30,20 +30,12 @@ export interface TdPopupProps {
     value?: string;
   };
   /**
-   * 自定义组件样式
+   * 弹出层的自定义样式（即将废弃，推荐使用 `style` ）
    * @default ''
    */
-  style?: {
+  customStyle?: {
     type: StringConstructor;
     value?: string;
-  };
-  /**
-   * 动画过渡时间
-   * @default 240
-   */
-  duration?: {
-    type: NumberConstructor;
-    value?: number;
   };
   /**
    * 组件类名，分别用于设置 组件外层元素、遮罩层、浮层内容 等元素类名
@@ -83,6 +75,14 @@ export interface TdPopupProps {
   showOverlay?: {
     type: BooleanConstructor;
     value?: boolean;
+  };
+  /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
   };
   /**
    * 动画效果定义

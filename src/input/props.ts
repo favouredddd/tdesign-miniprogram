@@ -11,11 +11,6 @@ const props: TdInputProps = {
     type: String,
     value: 'left',
   },
-  /** 标题输入框布局方式 */
-  layout: {
-    type: String,
-    value: 'horizontal',
-  },
   /** 是否开启无边框模式 */
   borderless: {
     type: Boolean,
@@ -23,18 +18,12 @@ const props: TdInputProps = {
   },
   /** 是否可清空 */
   clearable: {
-    type: null,
+    type: Boolean,
     value: false,
-  },
-  /** 清空图标触发方式 */
-  clearTrigger: {
-    type: String,
-    value: 'always',
   },
   /** 是否禁用输入框 */
   disabled: {
     type: Boolean,
-    value: false,
   },
   /** 已废弃。错误提示文本，值为空不显示（废弃属性，如果需要，请更为使用 status 和 tips） */
   errorMessage: {
@@ -57,10 +46,9 @@ const props: TdInputProps = {
   maxcharacter: {
     type: Number,
   },
-  /** 用户最多可以输入的文本长度，一个中文等于一个计数长度，默认为 -1，不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 */
+  /** 用户最多可以输入的文本长度，一个中文等于一个计数长度。值小于等于 0 的时候，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 */
   maxlength: {
     type: Number,
-    value: -1,
   },
   /** 占位符 */
   placeholder: {
@@ -69,8 +57,7 @@ const props: TdInputProps = {
   },
   /** 组件前置图标，值为字符串则表示图标名称 */
   prefixIcon: {
-    type: null,
-    value: null,
+    type: String,
   },
   /** 只读状态 */
   readonly: {
@@ -80,12 +67,17 @@ const props: TdInputProps = {
   /** 输入框尺寸 */
   size: {
     type: String,
-    value: 'medium',
+    value: 'small',
   },
   /** 输入框状态 */
   status: {
     type: String,
     value: 'default',
+  },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
   /** 后置图标前的后置内容 */
   suffix: {
@@ -93,8 +85,7 @@ const props: TdInputProps = {
   },
   /** 后置文本内容，值为字符串则表示图标名称 */
   suffixIcon: {
-    type: null,
-    value: null,
+    type: String,
   },
   /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
   tips: {
@@ -102,24 +93,28 @@ const props: TdInputProps = {
   },
   /** 输入框的值 */
   value: {
-    type: String,
-    optionalTypes: [Number],
+    type: null,
     value: null,
   },
   /** 输入框的值，非受控属性 */
   defaultValue: {
-    type: String,
-    optionalTypes: [Number],
+    type: null,
   },
   /** input 的类型。<br />具体释义：<br />`text` 文本输入键盘；<br />`number` 数字输入键盘；<br />`idcard` 身份证输入键盘；<br />`digit` 带小数点的数字键盘；<br />`safe-password` 密码安全输入键盘 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/safe-password.html">指引</a>；<br />`nickname` 昵称输入键盘。<br />[小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/input.html) */
   type: {
     type: String,
     value: 'text',
   },
+  /** 是否是密码类型 */
+  password: {
+    type: Boolean,
+    value: false,
+  },
   /** 指定 placeholder 的样式 */
   placeholderStyle: {
     type: String,
     value: '',
+    required: true,
   },
   /** 指定 placeholder 的样式类 */
   placeholderClass: {
@@ -156,16 +151,17 @@ const props: TdInputProps = {
     type: Boolean,
     value: false,
   },
-  /** 指定focus时的光标位置 */
+  /** 指定 focus 时的光标位置 */
   cursor: {
     type: Number,
+    required: true,
   },
-  /** 光标起始位置，自动聚集时有效，需与selection-end搭配使用 */
+  /** 光标起始位置，自动聚集时有效，需与 selection-end 搭配使用 */
   selectionStart: {
     type: Number,
     value: -1,
   },
-  /** 光标结束位置，自动聚集时有效，需与selection-start搭配使用 */
+  /** 光标结束位置，自动聚集时有效，需与 selection-start 搭配使用 */
   selectionEnd: {
     type: Number,
     value: -1,
@@ -198,15 +194,30 @@ const props: TdInputProps = {
     type: String,
     value: '',
   },
-  /** 安全键盘计算hash盐值，若指定custom-hash 则无效 */
+  /** 安全键盘计算 hash 盐值，若指定custom-hash 则无效 */
   safePasswordSalt: {
     type: String,
     value: '',
   },
-  /** 安全键盘计算hash的算法表达式，如 `md5(sha1('foo' + sha256(sm3(password + 'bar'))))` */
+  /** 安全键盘计算 hash 的算法表达式，如 `md5(sha1('foo' + sha256(sm3(password + 'bar'))))` */
   safePasswordCustomHash: {
     type: String,
     value: '',
+  },
+  /**  */
+  type: {
+    type: 除 safe-password、nickname 外都支持,
+    required: true,
+  },
+  /**  */
+  placeholderStyle: {
+    type: null,
+    required: true,
+  },
+  /**  */
+  placeholderClass: {
+    type: 不支持,
+    required: true,
   },
 };
 

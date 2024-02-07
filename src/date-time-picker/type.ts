@@ -4,6 +4,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { TNode } from '../common/common';
+
 export interface TdDateTimePickerProps {
   /**
    * 取消按钮文字
@@ -36,7 +38,15 @@ export interface TdDateTimePickerProps {
     value?: ['t-class', 't-class-confirm', 't-class-cancel', 't-class-title'];
   };
   /**
-   * 用于格式化 pick、change、confirm 事件返回的值，[详细文档](https://day.js.org/docs/en/display/format)
+   * 底部内容
+   * @default true
+   */
+  footer?: {
+    type: BooleanConstructor;
+    value?: boolean;
+  };
+  /**
+   * 用于pick、change、confirm事件参数格式化[详细文档](https://day.js.org/docs/en/display/format)
    * @default 'YYYY-MM-DD HH:mm:ss'
    */
   format?: {
@@ -44,7 +54,7 @@ export interface TdDateTimePickerProps {
     value?: string;
   };
   /**
-   * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容
+   * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 TNode 表示自定义头部内容
    * @default true
    */
   header?: {
@@ -75,15 +85,16 @@ export interface TdDateTimePickerProps {
     value?: string | number;
   };
   /**
-   * 时间间隔步数，示例：`{ minute: 5 }`
+   * 自定义组件样式
+   * @default ''
    */
-  steps?: {
-    type: ObjectConstructor;
-    value?: object;
+  style?: {
+    type: StringConstructor;
+    value?: string;
   };
   /**
    * 标题
-   * @default ''
+   * @default '选择时间'
    */
   title?: {
     type: StringConstructor;
@@ -110,24 +121,6 @@ export interface TdDateTimePickerProps {
   visible?: {
     type: BooleanConstructor;
     value?: boolean;
-  };
-
-  /**
-   * 透传给picker内部的pop组件
-   * @default {}
-   */
-  popupProps: {
-    type: Object;
-    value: {};
-  };
-
-  /**
-   * 组件国际化支持
-   * @default zh
-   */
-  customLocale?: {
-    type: StringConstructor;
-    value: String;
   };
 }
 

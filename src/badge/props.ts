@@ -54,6 +54,11 @@ const props: TdBadgeProps = {
     type: String,
     value: 'medium',
   },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
+  },
 };
 
 export default props;

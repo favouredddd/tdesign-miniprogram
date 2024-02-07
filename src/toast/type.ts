@@ -6,14 +6,6 @@
 
 export interface TdToastProps {
   /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
    * 图标排列方式
    * @default row
    */
@@ -41,7 +33,7 @@ export interface TdToastProps {
    * @default ''
    */
   icon?: {
-    type: null;
+    type: StringConstructor;
     value?: string;
   };
   /**
@@ -84,10 +76,18 @@ export interface TdToastProps {
     value?: boolean;
   };
   /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
    * 提示类型
    */
   theme?: {
     type: StringConstructor;
-    value?: 'loading' | 'success' | 'error';
+    value?: 'loading' | 'success' | 'fail';
   };
 }

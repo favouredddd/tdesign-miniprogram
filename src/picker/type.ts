@@ -5,7 +5,7 @@
  * */
 
 import { ButtonProps } from '../button/index';
-import { KeysType } from '../common/common';
+import { TNode } from '../common/common';
 
 export interface TdPickerProps {
   /**
@@ -25,6 +25,14 @@ export interface TdPickerProps {
     value?: boolean | string | ButtonProps;
   };
   /**
+   * 配置每一列的选项
+   * @default []
+   */
+  columns: {
+    type: ArrayConstructor;
+    value?: Array<PickerColumn> | ((item: Array<PickerValue>) => Array<PickerColumn>);
+  };
+  /**
    * 确定按钮文字
    * @default true
    */
@@ -33,7 +41,7 @@ export interface TdPickerProps {
     value?: boolean | string | ButtonProps;
   };
   /**
-   * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容
+   * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 TNode 表示自定义头部内容
    * @default true
    */
   header?: {
@@ -41,11 +49,19 @@ export interface TdPickerProps {
     value?: boolean;
   };
   /**
-   * 用来定义 value / label 在 `options` 中对应的字段别名
+   * 自定义label
    */
-  keys?: {
-    type: ObjectConstructor;
-    value?: KeysType;
+  renderLabel?: {
+    type: StringConstructor;
+    value?: (item: PickerColumnItem) => string;
+  };
+  /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
   };
   /**
    * 标题
@@ -77,14 +93,13 @@ export interface TdPickerProps {
     type: BooleanConstructor;
     value?: boolean;
   };
-  /**
-   * popup组件样式
-   * @default {}
-   */
-  popupProps: {
-    type: object;
-    value?: {};
-  };
+}
+
+export type PickerColumn = PickerColumnItem[];
+
+export interface PickerColumnItem {
+  label: string;
+  value: string;
 }
 
 export type PickerValue = string | number;
