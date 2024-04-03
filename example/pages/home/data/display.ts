@@ -102,6 +102,10 @@ const skylineDisplay = {
       label: '页脚',
     },
     {
+      name: 'Grid',
+      label: '宫格',
+    },
+    {
       name: 'Image',
       label: '图片',
     },

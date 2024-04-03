@@ -60,6 +60,7 @@
     "pages/back-top/back-top",
     "pages/back-top/skyline/back-top",
     "pages/grid/grid",
+    "pages/grid/skyline/grid",
     "pages/upload/upload",
     "pages/count-down/count-down",
     "pages/count-down/skyline/count-down",
