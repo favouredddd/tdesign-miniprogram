@@ -1,4 +1,5 @@
 import ActionSheet, { ActionSheetTheme } from 'tdesign-miniprogram/action-sheet/index';
+import SkylineBehavior from '@behaviors/skyline.js';
 
 const firstGrid = [
   {
@@ -36,6 +37,7 @@ const firstGrid = [
 ];
 
 Component({
+  behaviors: [SkylineBehavior],
   methods: {
     handleAction() {
       ActionSheet.show({
