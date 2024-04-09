@@ -6,7 +6,7 @@
 
 import { TdTabsProps } from './type';
 const props: TdTabsProps = {
-  /** 动画效果设置。其中 duration 表示动画时长。（单位：秒） */
+  /** 动画效果设置。其中 duration 表示动画时长 */
   animation: {
     type: Object,
   },
@@ -14,18 +14,13 @@ const props: TdTabsProps = {
   externalClasses: {
     type: Array,
   },
+  /** 选项卡位置 */
+  placement: {
+    type: String,
+    value: 'top',
+  },
   /** 是否展示底部激活线条 */
   showBottomLine: {
-    type: Boolean,
-    value: true,
-  },
-  /** 选项卡头部空间是否均分 */
-  spaceEvenly: {
-    type: Boolean,
-    value: true,
-  },
-  /** 是否展示分割线 */
-  split: {
     type: Boolean,
     value: true,
   },
@@ -38,15 +33,15 @@ const props: TdTabsProps = {
   stickyProps: {
     type: Object,
   },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
+  },
   /** 是否可以滑动切换 */
   swipeable: {
     type: Boolean,
     value: true,
-  },
-  /** 标签的样式 */
-  theme: {
-    type: String,
-    value: 'line',
   },
   /** 激活的选项卡值 */
   value: {

@@ -6,14 +6,6 @@
 
 export interface TdStepperProps {
   /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
    * 禁用输入框
    * @default false
    */
@@ -68,10 +60,10 @@ export interface TdStepperProps {
     value?: number;
   };
   /**
-   * 组件尺寸
-   * @default medium
+   * 自定义组件样式
+   * @default ''
    */
-  size?: {
+  style?: {
     type: StringConstructor;
     value?: string;
   };
@@ -81,15 +73,14 @@ export interface TdStepperProps {
    */
   theme?: {
     type: StringConstructor;
-    value?: 'normal' | 'filled' | 'outline';
+    value?: 'normal' | 'grey';
   };
   /**
    * 值
    * @default 0
    */
   value?: {
-    type: StringConstructor;
-    optionalTypes: Array<NumberConstructor>;
+    type: null;
     value?: string | number;
   };
   /**
@@ -97,8 +88,7 @@ export interface TdStepperProps {
    * @default 0
    */
   defaultValue?: {
-    type: StringConstructor;
-    optionalTypes: Array<NumberConstructor>;
+    type: null;
     value?: string | number;
   };
 }

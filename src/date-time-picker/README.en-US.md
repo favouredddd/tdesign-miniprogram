@@ -34,9 +34,11 @@ change | `(value: DateValue)` | \-
 close | `(trigger: TriggerSource)` | `1.0.1`。[see more ts definition](https://github.com/Tencent/tdesign-miniprogram/tree/develop/src/date-time-picker/type.ts)。<br/>`type TriggerSource = 'overlay' \| 'cancel-btn' \| 'confrim-btn'`<br/>
 confirm | `(value: DateValue)` | `1.0.1`
 pick | `(value: DateValue)` | \-
+### DateTimePicker External Classes
 
-### CSS Variables
-The component provides the following CSS variables, which can be used to customize styles.
-Name | Default Value | Description 
--- | -- | --
---td-data-time-picker-year-width | 128rpx | - 
+className | Description
+-- | --
+t-class | \-
+t-class-cancel | \-
+t-class-confirm | \-
+t-class-title | \-

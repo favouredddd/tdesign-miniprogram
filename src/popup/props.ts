@@ -19,10 +19,10 @@ const props: TdPopupProps = {
   content: {
     type: String,
   },
-  /** 动画过渡时间 */
-  duration: {
-    type: Number,
-    value: 240,
+  /** 弹出层的自定义样式（即将废弃，推荐使用 `style` ） */
+  customStyle: {
+    type: String,
+    value: '',
   },
   /** 组件类名，分别用于设置 组件外层元素、遮罩层、浮层内容 等元素类名 */
   externalClasses: {
@@ -47,6 +47,11 @@ const props: TdPopupProps = {
   showOverlay: {
     type: Boolean,
     value: true,
+  },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
   /** 动画效果定义 */
   transitionProps: {
