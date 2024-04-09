@@ -3,31 +3,13 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
-import { RadioValue } from '../radio/type';
-import { KeysType } from '../common/common';
 
 export interface TdRadioGroupProps<T = RadioValue> {
   /**
    * 复选框和内容相对位置；仅在使用 options 时生效
    * @default left
    */
-  placement?: {
-    type: StringConstructor;
-    value?: 'left' | 'right';
-  };
-  /**
-   * 是否开启无边框模式
-   * @default false
-   */
-  borderless?: {
-    type: BooleanConstructor;
-    value?: boolean;
-  };
-  /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
+  align?: {
     type: StringConstructor;
     value?: string;
   };
@@ -44,14 +26,7 @@ export interface TdRadioGroupProps<T = RadioValue> {
    */
   icon?: {
     type: null;
-    value?: 'circle' | 'line' | 'dot' | Array<string>;
-  };
-  /**
-   * 用来定义 value / label 在 `options` 中对应的字段别名
-   */
-  keys?: {
-    type: ObjectConstructor;
-    value?: KeysType;
+    value?: string | array;
   };
   /**
    * HTML 元素原生属性
@@ -67,6 +42,14 @@ export interface TdRadioGroupProps<T = RadioValue> {
   options?: {
     type: ArrayConstructor;
     value?: Array<RadioOption>;
+  };
+  /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
   };
   /**
    * 选中的值
@@ -89,7 +72,5 @@ export type RadioOption = string | number | RadioOptionObj;
 export interface RadioOptionObj {
   label?: string;
   value?: string | number;
-  readonly?: boolean;
   disabled?: boolean;
-  allowUncheck?: boolean;
 }

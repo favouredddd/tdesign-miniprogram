@@ -6,6 +6,10 @@
 
 import { TdSwitchProps } from './type';
 const props: TdSwitchProps = {
+  /** 自定义颜色，[打开时的颜色，关闭时的颜色]。组件默认颜色为 ['#0052d9', 'rgba(0, 0, 0, .26']。示例：[blue, gray] */
+  colors: {
+    type: Array,
+  },
   /** 用于自定义开关的值，[打开时的值，关闭时的值]。默认为 [true, false]。示例：[1, 0]、['open', 'close'] */
   customValue: {
     type: Array,
@@ -16,15 +20,10 @@ const props: TdSwitchProps = {
     type: Boolean,
     value: false,
   },
-  /** 开关的图标；[打开时的图标，关闭时的图标] */
-  icon: {
-    type: Array,
-    value: [],
-  },
-  /** 开关的标签；[打开时的标签，关闭时的标签] */
+  /** 开关的标签 */
   label: {
-    type: Array,
-    value: [],
+    type: String,
+    value: '',
   },
   /** 是否处于加载中状态 */
   loading: {
@@ -35,6 +34,11 @@ const props: TdSwitchProps = {
   size: {
     type: String,
     value: 'medium',
+  },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
   /** 开关值 */
   value: {

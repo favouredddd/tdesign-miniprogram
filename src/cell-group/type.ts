@@ -13,14 +13,6 @@ export interface TdCellGroupProps {
     value?: boolean;
   };
   /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
    * 组件类名
    */
   externalClasses?: {
@@ -28,12 +20,12 @@ export interface TdCellGroupProps {
     value?: ['t-class'];
   };
   /**
-   * 单元格风格
-   * @default default
+   * 自定义组件样式
+   * @default ''
    */
-  theme?: {
+  style?: {
     type: StringConstructor;
-    value?: 'default' | 'card';
+    value?: string;
   };
   /**
    * 单元格组标题

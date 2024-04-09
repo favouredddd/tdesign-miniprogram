@@ -16,11 +16,6 @@ const props: TdDateTimePickerProps = {
     type: String,
     value: '',
   },
-  /**  组件国际化语言，目前支持: 简体中文(zh)、(tc)、英文(en)、日语(ja)、韩语(ko)、俄语(ru)等六种语言 */
-  customLocale: {
-    type: String,
-    value: 'zh',
-  },
   /** 选择器的最大可选时间，默认为当前时间+10年 */
   end: {
     type: null,
@@ -29,12 +24,17 @@ const props: TdDateTimePickerProps = {
   externalClasses: {
     type: Array,
   },
-  /** 用于格式化 pick、change、confirm 事件返回的值，[详细文档](https://day.js.org/docs/en/display/format) */
+  /** 底部内容 */
+  footer: {
+    type: Boolean,
+    value: true,
+  },
+  /** 用于pick、change、confirm事件参数格式化[详细文档](https://day.js.org/docs/en/display/format) */
   format: {
     type: String,
     value: 'YYYY-MM-DD HH:mm:ss',
   },
-  /** 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容 */
+  /** 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 TNode 表示自定义头部内容 */
   header: {
     type: Boolean,
     value: true,
@@ -43,11 +43,6 @@ const props: TdDateTimePickerProps = {
   mode: {
     type: null,
     value: 'date',
-  },
-  /** 透传 `Popup` 组件全部属性 */
-  popupProps: {
-    type: Object,
-    value: {},
   },
   /** 【开发中】是否在日期旁边显示周几（如周一，周二，周日等） */
   showWeek: {
@@ -58,9 +53,10 @@ const props: TdDateTimePickerProps = {
   start: {
     type: null,
   },
-  /** 时间间隔步数，示例：`{ minute: 5 }` */
-  steps: {
-    type: Object,
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
   /** 标题 */
   title: {

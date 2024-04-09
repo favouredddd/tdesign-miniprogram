@@ -8,17 +8,17 @@ import { TdImageViewerProps } from './type';
 const props: TdImageViewerProps = {
   /** 遮罩的背景颜色 */
   backgroundColor: {
-    type: String,
-    value: 'rgba(0, 0, 0, 1)',
+    type: null,
+    value: rgba(0, 0, 0, .6),
   },
-  /** 是否显示关闭操作，前提需要开启页码。值为字符串表示图标名称，值为 `true` 表示使用默认图标 `close`，值为 `Object` 类型，表示透传至 `icon` ，不传表示不显示图标 */
+  /** 是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以完全自定义关闭按钮 */
   closeBtn: {
-    type: null,
-    value: false,
+    type: Boolean,
+    value: true,
   },
-  /** 是否显示删除操作，前提需要开启页码。值为字符串表示图标名称，值为 `true` 表示使用默认图标 `delete`，值为 `Object` 类型，表示透传至 `icon`，不传表示不显示图标 */
+  /** 是否显示删除操作 */
   deleteBtn: {
-    type: null,
+    type: Boolean,
     value: false,
   },
   /** 图片数组 */
@@ -31,15 +31,20 @@ const props: TdImageViewerProps = {
     type: Number,
     value: 0,
   },
+  /** 最大放大比例 */
+  maxZoom: {
+    type: Number,
+    value: 3,
+  },
   /** 是否显示页码 */
   showIndex: {
     type: Boolean,
     value: false,
   },
-  /** 是否使用了自定义导航栏 */
-  usingCustomNavbar: {
-    type: Boolean,
-    value: false,
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
   /** 隐藏/显示预览 */
   visible: {

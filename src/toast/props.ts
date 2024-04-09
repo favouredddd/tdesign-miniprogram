@@ -22,7 +22,8 @@ const props: TdToastProps = {
   },
   /** 自定义图标 */
   icon: {
-    type: null,
+    type: String,
+    value: '',
   },
   /** 弹窗显示文字 */
   message: {
@@ -47,6 +48,11 @@ const props: TdToastProps = {
   showOverlay: {
     type: Boolean,
     value: false,
+  },
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
   /** 提示类型 */
   theme: {

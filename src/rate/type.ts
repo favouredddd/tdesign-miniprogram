@@ -4,6 +4,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { TNode } from '../common/common';
+
 export interface TdRateProps {
   /**
    * 是否允许半选
@@ -30,14 +32,6 @@ export interface TdRateProps {
     value?: number;
   };
   /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
    * 是否禁用评分
    */
   disabled?: {
@@ -45,34 +39,19 @@ export interface TdRateProps {
     value?: boolean;
   };
   /**
-   * 组件类名，分别用于设置 组件外层类名、评分图标类名、辅助文字类名。
-   */
-  externalClasses?: {
-    type: ArrayConstructor;
-    value?: ['t-class', 't-class-icon', 't-class-text'];
-  };
-  /**
-   * 评分图标的间距，默认单位为 `px`, 示例：`8`
-   * @default 8
+   * 评分图标的间距
+   * @default 4
    */
   gap?: {
-    type: null;
-    value?: string | number;
+    type: NumberConstructor;
+    value?: number;
   };
   /**
-   * 自定义图标前缀
-   */
-  iconPrefix?: {
-    type: StringConstructor;
-    value?: string;
-    reuqired?: boolean;
-  };
-  /**
-   * 自定义评分图标，[选中图标，未选中图标]
+   * 自定义评分图标，插槽参数：{ type: 'grey' | 'highlight' | 'half' }，分别表示 灰色图标、高亮图标 和 半分图标
    */
   icon?: {
-    type: null;
-    value?: string | string[];
+    type: undefined;
+    value?: TNode<{ type: 'grey' | 'highlight' | 'half' }>;
   };
   /**
    * 是否显示对应的辅助文字
@@ -83,10 +62,18 @@ export interface TdRateProps {
     value?: boolean;
   };
   /**
-   * 评分图标的大小
+   * 评分图标的大小，示例：`20px`
    * @default 24px
    */
   size?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
     type: StringConstructor;
     value?: string;
   };
@@ -115,11 +102,11 @@ export interface TdRateProps {
     value?: number;
   };
   /**
-   * 选择评分弹框的位置
-   * @default top
+   * 形状类型，有描边类型和填充类型两种
+   * @default outline
    */
-  placement?: {
+  variant?: {
     type: StringConstructor;
-    value?: 'top' | 'bottom';
+    value?: 'outline' | 'filled';
   };
 }

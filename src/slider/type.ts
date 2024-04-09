@@ -4,14 +4,16 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { TNode } from '../common/common';
+
 export interface TdSliderProps {
   /**
-   * 自定义组件样式
-   * @default ''
+   * 颜色，[已选择, 未选择]
+   * @default ['#0052D9', 'rgba(220, 220, 220, 1)']
    */
-  style?: {
-    type: StringConstructor;
-    value?: string;
+  colors?: {
+    type: ArrayConstructor;
+    value?: Array<string>;
   };
   /**
    * 是否禁用组件
@@ -20,6 +22,14 @@ export interface TdSliderProps {
   disabled?: {
     type: BooleanConstructor;
     value?: boolean;
+  };
+  /**
+   * 禁用状态滑动条的颜色，[已选, 未选]
+   * @default ['#bbd3fb', '#dcdcdc']
+   */
+  disabledColor?: {
+    type: ArrayConstructor;
+    value?: Array<string>;
   };
   /**
    * 组件类名，分别用于设置 组件外层元素、滑道底部、滑道激活态、滑道禁用态、游标 等元素类名
@@ -34,7 +44,7 @@ export interface TdSliderProps {
    */
   label?: {
     type: null;
-    value?: string | boolean;
+    value?: string | boolean | TNode<{ value: SliderValue; position?: 'start' | 'end' }>;
   };
   /**
    * 刻度标记，示例：`[0, 10, 40, 200]` 或者 `{ 5:  '5¥', 10: '10%' }`
@@ -85,12 +95,12 @@ export interface TdSliderProps {
     value?: number;
   };
   /**
-   * 滑块风格
-   * @default default
+   * 自定义组件样式
+   * @default ''
    */
-  theme?: {
+  style?: {
     type: StringConstructor;
-    value?: 'default' | 'capsule';
+    value?: string;
   };
   /**
    * 滑块值
@@ -107,14 +117,6 @@ export interface TdSliderProps {
   defaultValue?: {
     type: null;
     value?: SliderValue;
-  };
-  /**
-   * 是否垂直展示
-   * @default false
-   */
-  vertical?: {
-    type: BooleanConstructor;
-    value?: boolean;
   };
 }
 

@@ -6,14 +6,6 @@
 
 export interface TdResultProps {
   /**
-   * 自定义组件样式
-   * @default ''
-   */
-  style?: {
-    type: StringConstructor;
-    value?: string;
-  };
-  /**
    * 描述文字
    */
   description?: {
@@ -25,15 +17,15 @@ export interface TdResultProps {
    */
   externalClasses?: {
     type: ArrayConstructor;
-    value?: ['t-class', 't-class-description', 't-class-image'];
+    value?: array;
   };
   /**
    * 图标名称
-   * @default true
+   * @default ''
    */
   icon?: {
-    type: null;
-    value?: boolean | string | object;
+    type: StringConstructor;
+    value?: string;
   };
   /**
    * 图片地址
@@ -43,12 +35,20 @@ export interface TdResultProps {
     value?: string;
   };
   /**
+   * 自定义组件样式
+   * @default ''
+   */
+  style?: {
+    type: StringConstructor;
+    value?: string;
+  };
+  /**
    * 内置主题。可选项：default/success/warning/error
    * @default default
    */
   theme?: {
     type: StringConstructor;
-    value?: 'default' | 'success' | 'warning' | 'error';
+    value?: string;
   };
   /**
    * 标题

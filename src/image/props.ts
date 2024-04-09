@@ -6,11 +6,6 @@
 
 import { TdImageProps } from './type';
 const props: TdImageProps = {
-  /** id，默认为null */
-  tId: {
-    type: String,
-    value: null,
-  },
   /** 加载失败时显示的内容。值为 `default` 则表示使用默认加载失败风格；值为空或者 `slot` 表示使用插槽渲染，插槽名称为 `error`；值为其他则表示普通文本内容，如“加载失败” */
   error: {
     type: String,
@@ -19,10 +14,6 @@ const props: TdImageProps = {
   /** 组件类名，分别用于设置加载组件外层元素，中间内容等元素类名 */
   externalClasses: {
     type: Array,
-  },
-  /** 高度，默认单位为`px` */
-  height: {
-    type: null,
   },
   /** 是否开启图片懒加载 */
   lazy: {
@@ -33,11 +24,6 @@ const props: TdImageProps = {
   loading: {
     type: String,
     value: 'default',
-  },
-  /** 图片裁剪、缩放的模式；[小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/image.html) */
-  mode: {
-    type: String,
-    value: 'scaleToFill',
   },
   /** 图片圆角类型 */
   shape: {
@@ -54,14 +40,20 @@ const props: TdImageProps = {
     type: String,
     value: '',
   },
-  /** 默认不解析 webP 格式，只支持网络资源 */
-  webp: {
-    type: Boolean,
-    value: false,
+  /** 自定义组件样式 */
+  style: {
+    type: String,
+    value: '',
   },
-  /** 宽度，默认单位为`px` */
-  width: {
-    type: null,
+  /**  */
+  mode: {
+    type: 只支持 scaleToFill/aspectFit/aspectFill/widthFix/heightFix，其余暂未支持，表现为居中,
+    required: true,
+  },
+  /**  */
+  webp: {
+    type: 无需指定，默认支持,
+    required: true,
   },
 };
 

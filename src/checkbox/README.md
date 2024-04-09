@@ -1,69 +1,13 @@
----
-title: Checkbox 多选框
-description: 用于预设的一组选项中执行多项选择，并呈现选择结果。
-spline: form
-isComponent: true
----
-
-<span class="coverages-badge" style="margin-right: 10px"><img src="https://img.shields.io/badge/coverages%3A%20lines-85%25-blue" /></span><span class="coverages-badge" style="margin-right: 10px"><img src="https://img.shields.io/badge/coverages%3A%20functions-87%25-blue" /></span><span class="coverages-badge" style="margin-right: 10px"><img src="https://img.shields.io/badge/coverages%3A%20statements-86%25-blue" /></span><span class="coverages-badge" style="margin-right: 10px"><img src="https://img.shields.io/badge/coverages%3A%20branches-76%25-red" /></span>
-## 引入
-
-全局引入，在 miniprogram 根目录下的`app.json`中配置，局部引入，在需要引入的页面或组件的`index.json`中配置。
-
-```json
-"usingComponents": {
-  "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
-  "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group"
-}
-```
-
-## 代码演示
-
-### 组件类型
-
-纵向多选框
-
-{{ base }}
-
-横向多选框
-
-{{ horizontal }}
-
-带全选多选框
-
-{{ all }}
-
-### 组件状态
-
-多选框状态
-
-{{ status }}
-
-### 组件样式
-
-勾选样式
-
-{{ type }}
-
-勾选显示位置
-
-{{ right }}
-
-非通栏多选样式
-
-{{ card }}
-
-### 组件规格
-
-多选框尺寸规格
-
-{{ special }}
+:: BASE_DOC ::
 
 ## API
+
 ### Checkbox Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
+style | Object | - | 样式 | N
+custom-style | Object | - | 样式，一般用于开启虚拟化组件节点场景 | N
 block | Boolean | true | 是否为块级元素 | N
 borderless | Boolean | false | 是否开启无边框模式 | N
 check-all | Boolean | false | 用于标识是否为「全选选项」。单独使用无效，需在 CheckboxGroup 中使用 | N
@@ -86,21 +30,24 @@ value | String / Number / Boolean | - | 多选框的值。TS 类型：`string \|
 
 名称 | 参数 | 描述
 -- | -- | --
-change | `(checked: boolean, context: { value: boolean|number|string, label: boolean|number|string })` | 值变化时触发。`context` 表示当前点击项内容。
+change | `(checked: boolean, context: { value: boolean\|number\|string, label: boolean\|number\|string })` | 值变化时触发。`context` 表示当前点击项内容。
+### Checkbox External Classes
 
-### Checkbox 外部样式类
-类名 | 说明
--- | -- 
+类名 | 描述
+-- | --
 t-class | 根节点样式类
-t-class-label | 标签样式类
-t-class-icon | 图标样式类
-t-class-content | 内容样式类
 t-class-border | 边框样式类
+t-class-content | 内容样式类
+t-class-icon | 图标样式类
+t-class-label | 标签样式类
+
 
 ### CheckboxGroup Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
+style | Object | - | 样式 | N
+custom-style | Object | - | 样式，一般用于开启虚拟化组件节点场景 | N
 borderless | Boolean | false | 是否开启无边框模式 | N
 disabled | Boolean | - | 是否禁用组件，默认为 false。 CheckboxGroup.disabled < Checkbox.disabled ，后续新增 Form 组件后，Form.disabled 优先级最低 | N
 max | Number | undefined | 支持最多选中的数量 | N
@@ -113,27 +60,4 @@ default-value | Array | undefined | 选中值。非受控属性。TS 类型：`T
 
 名称 | 参数 | 描述
 -- | -- | --
-change | `(value: CheckboxGroupValue, context: { value: boolean|number|string, label: boolean|number|string })` | 值变化时触发。`context` 表示当前点击项内容。
-
-
-### CSS 变量
-组件提供了下列 CSS 变量，可用于自定义样式。
-名称 | 默认值 | 描述 
--- | -- | --
---td-checkbox-bg-color | @bg-color-container | - 
---td-checkbox-border-color | @component-stroke | - 
---td-checkbox-description-color | @font-gray-2 | - 
---td-checkbox-description-disabled-color | @font-gray-4 | - 
---td-checkbox-description-line-height | 44rpx | - 
---td-checkbox-font-size | 32rpx | - 
---td-checkbox-icon-checked-color | @brand-color | - 
---td-checkbox-icon-color | @gray-color-4 | - 
---td-checkbox-icon-disabled-bg-color | @bg-color-component-disabled | - 
---td-checkbox-icon-disabled-color | @brand-color-disabled | - 
---td-checkbox-icon-size | 48rpx | - 
---td-checkbox-tag-active-bg-color | @brand-color-light | - 
---td-checkbox-tag-active-color | @brand-color | - 
---td-checkbox-title-color | @font-gray-1 | - 
---td-checkbox-title-disabled-color | @font-gray-4 | - 
---td-checkbox-title-line-height | 48rpx | - 
---td-checkbox-vertical-padding | 32rpx | - 
+change | `(value: CheckboxGroupValue, context: { value: boolean\|number\|string, label: boolean\|number\|string })` | 值变化时触发。`context` 表示当前点击项内容。

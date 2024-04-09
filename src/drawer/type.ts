@@ -4,9 +4,12 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { TNode } from '../common/common';
+
 export interface TdDrawerProps {
   /**
    * 点击蒙层时是否触发抽屉关闭事件
+   * @default true
    */
   closeOnOverlayClick?: {
     type: BooleanConstructor;
@@ -44,9 +47,10 @@ export interface TdDrawerProps {
     value?: boolean;
   };
   /**
-   * 抽屉的标题
+   * 自定义组件样式
+   * @default ''
    */
-  title?: {
+  style?: {
     type: StringConstructor;
     value?: string;
   };
@@ -60,7 +64,6 @@ export interface TdDrawerProps {
   };
   /**
    * 抽屉层级，样式默认为 11500
-   * @default 11500
    */
   zIndex?: {
     type: NumberConstructor;
@@ -70,5 +73,5 @@ export interface TdDrawerProps {
 
 export interface DrawerItem {
   title: string;
-  icon: string;
+  icon: TNode;
 }
